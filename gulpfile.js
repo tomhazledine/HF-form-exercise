@@ -6,6 +6,7 @@ var autoprefixer = require('gulp-autoprefixer');
 var concat       = require('gulp-concat');
 var jshint       = require('gulp-jshint');
 var minifycss    = require('gulp-clean-css');
+var scsslint     = require( 'gulp-scss-lint' );
 var plumber      = require('gulp-plumber');
 var rename       = require('gulp-rename');
 var sass         = require('gulp-sass');
@@ -53,6 +54,12 @@ gulp.task('jslint', function() {
     return gulp.src('uncompressed/js/*.js')
     .pipe(jshint())
     .pipe(jshint.reporter('default'));
+});
+
+// Lets lint our CSS
+gulp.task( 'scss-lint', function() {
+    gulp.src( 'uncompressed/scss/*.scss' )
+    .pipe( scsslint({ 'config': 'defaultLint.yml' }) );
 });
 
 // Watch Files For Changes

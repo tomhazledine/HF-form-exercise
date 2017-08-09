@@ -23,6 +23,7 @@
     "gulp-plumber": "^1.0.1",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^3.1.0",
+    "gulp-scss-lint": "^0.5.0",
     "gulp-uglify": "^1.4.1",
     "gulp-util": "^3.0.6",
     "mocha": "^3.2.0"
