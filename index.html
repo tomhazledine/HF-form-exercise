@@ -10,19 +10,19 @@
 
     <form class="popup_wrapper">
         
-        <div class="popup_header">
+        <div class="popup__header">
             <h3>Add Account</h3>
-            <span class="cross"></span>
+            <span class="button__action--close"></span>
         </div>
         
-        <div class="popup_body">
+        <div class="popup__body">
             <h2>Amazon Web Service</h2>
-            <div class="popup_inputs">
-                <div class="input_group">
+            <div class="popup__inputs">
+                <div class="popup__inputgroup">
                     <label for="name">Name</label>
                     <input type="text" name="name">
                 </div>
-                <div class="input_group">
+                <div class="popup__inputgroup">
                     <label for="department">Department</label>
                     <select name="department">
                         <option value="1">Department 1</option>
@@ -31,11 +31,11 @@
                         <option value="4">Department 4</option>
                     </select>
                 </div>
-                <div class="input_group">
+                <div class="popup__inputgroup">
                     <label for="access_key_id">Access Key ID</label>
                     <input type="text" name="access_key_id">
                 </div>
-                <div class="input_group">
+                <div class="popup__inputgroup">
                     <label for="secret_access_key">Secret Access Key</label>
                     <input type="text" name="secret_access_key">
                 </div>
@@ -43,7 +43,7 @@
         </div>
         
         <div class="popup_footer">
-            <button>Add Account</button>
+            <button class="popup__button">Add Account</button>
         </div>
 
     </form>
