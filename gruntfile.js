@@ -1,7 +1,7 @@
 module.exports=function(grunt){
     
     grunt.loadNpmTasks('grunt-contrib-sass');
-    grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-sass-lint');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
 
     grunt.initConfig({
@@ -26,45 +26,20 @@ module.exports=function(grunt){
                     ext: '.min.css'
                 }]
             }
+        },
+        sasslint: {
+            options: {
+                configFile: 'config/.sass-lint.yml',
+                exclude: [
+                    'uncompressed/scss/_trumps.utilities.scss'
+                ]
+            },
+            target: ['uncompressed/scss/\*.scss']
         }
-
-        // autoprefixer: {
-        //     options: {
-        //         browsers:['last 2 versions', 'ie 8', 'ie 9']
-        //     },
-        //     dist:{
-        //         files:{
-        //             'style.css': 'root.css'
-        //         }
-        //     }
-        // },
-
-        // uglify:{
-        //     my_target:{
-        //         files:{
-        //             'js/script.js':['js/raw/*.js']
-        //         }
-        //     }
-        // },
-
-        // watch:{
-        //     styles:{
-        //         files: ['root.css'],
-        //         tasks: ['autoprefixer']
-        //     },
-        //     scripts:{
-        //         files:['js/raw/*.js'],
-        //         tasks:['uglify']
-        //     },
-        //     sass:{
-        //         files:['scss/*.scss'],
-        //         tasks:['compass:dev']
-        //     }
-        // }
       
     });
 
-    grunt.registerTask('dev',['sass']);
+    grunt.registerTask('dev',['sass', 'sasslint']);
     grunt.registerTask('prod',['sass','cssmin']);
 
     grunt.registerTask('default','prod');
