@@ -10,7 +10,8 @@ module.exports=function(grunt){
                     expand: true,
                     cwd: 'uncompressed/scss/',
                     src: '*.scss',
-                    dest: 'assets'
+                    dest: 'assets',
+                    ext: '.css'
                 }]
             }
         }//,
