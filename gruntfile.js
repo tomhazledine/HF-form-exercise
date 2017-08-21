@@ -1,9 +1,10 @@
 module.exports=function(grunt){
     
     grunt.loadNpmTasks('grunt-contrib-sass');
+    grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-cssmin');
 
     grunt.initConfig({
-        
         sass: {
             dist: {
                 files: [{
@@ -14,7 +15,18 @@ module.exports=function(grunt){
                     ext: '.css'
                 }]
             }
-        }//,
+        },
+        cssmin: {
+            target: {
+                files: [{
+                    expand: true,
+                    cwd: 'assets/',
+                    src: ['*.css', '!*.min.css'],
+                    dest: 'assets/',
+                    ext: '.min.css'
+                }]
+            }
+        }
 
         // autoprefixer: {
         //     options: {
@@ -52,5 +64,8 @@ module.exports=function(grunt){
       
     });
 
-    grunt.registerTask('default','watch');
+    grunt.registerTask('dev',['sass']);
+    grunt.registerTask('prod',['sass','cssmin']);
+
+    grunt.registerTask('default','prod');
 }
